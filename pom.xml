@@ -9,11 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
-
     <dependencies>
         <!-- JUnit 5 Dependency for Testing -->
         <dependency>
@@ -34,13 +29,6 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.14.0</version>
-        </dependency>
-
-        <!-- Logging (optional, if needed for debugging) -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.36</version>
         </dependency>
 
         <!-- SonarQube Maven Plugin Dependency (for SonarQube analysis) -->
