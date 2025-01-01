@@ -15,7 +15,7 @@ pipeline {
                 checkout scm
             }
         }
-
+      
         stage('Build') {
             steps {
                 script {
@@ -34,7 +34,8 @@ pipeline {
                 bat '''
                 mvn sonar:sonar \
                 -Dsonar.projectKey=LoginAutomationTest_PoojaK \
-                -Dsonar.sources=.
+                -Dsonar.sources=src/main/java \
+                -Dsonar.tests=src/test/java \
                 -Dsonar.host.url=http://localhost:9000 \
                 -Dsonar.login=%SONAR_TOKEN% \
                 '''
