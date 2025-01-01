@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         maven 'sonar-maven' 
-    }
+          }
 
     environment {
         SONAR_SCANNER_PATH = "C:\\Users\\Pooja\\Downloads\\sonar-scanner-cli-6.2.1.4610-windows-x64\\sonar-scanner-6.2.1.4610-windows-x64\\bin"
@@ -18,7 +18,7 @@ pipeline {
       
         stage('Build') {
             steps {
-                script {
+                    script {
                     bat '''
                     mvn clean install
                     '''
@@ -31,15 +31,14 @@ pipeline {
                 SONAR_TOKEN = credentials('sonar-token')
             }
             steps {
-                bat '''
-                mvn sonar:sonar \
-                -Dsonar.projectKey=LoginAutomationTest_PoojaK \
-                -Dsonar.sources= \
-                -Dsonar.tests=src/test/java \
-                -Dsonar.host.url=http://localhost:9000 \
-                -Dsonar.login=%SONAR_TOKEN% \
-                '''
-            }
+                    bat '''
+                    mvn clean verify sonar:sonar \
+                    -Dsonar.projectKey=LoginAutomationTest_PoojaK \
+                    -Dsonar.sources=. \
+                    -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.login=%SONAR_TOKEN% \
+                    '''
+             }
         }
     }
 
