@@ -34,7 +34,7 @@ pipeline {
                 bat '''
                 mvn sonar:sonar \
                 -Dsonar.projectKey=LoginAutomationTest_PoojaK \
-                -Dsonar.sources=src/main/java \
+                -Dsonar.sources=src/test/java \
                 -Dsonar.tests=src/test/java \
                 -Dsonar.host.url=http://localhost:9000 \
                 -Dsonar.login=%SONAR_TOKEN% \
