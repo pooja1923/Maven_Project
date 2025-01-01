@@ -24,12 +24,19 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Selenium WebDriver Dependency for Automation Testing -->
+     <!-- Selenium WebDriver Dependency for Automation Testing -->
         <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.14.0</version>
-        </dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>4.14.0</version>
+    </dependency>
+
+    <!-- Selenium DevTools Dependency -->
+    <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-devtools-v131</artifactId>
+        <version>4.14.0</version>
+    </dependency>
 
         <!-- SonarQube Maven Plugin Dependency (for SonarQube analysis) -->
         <dependency>
