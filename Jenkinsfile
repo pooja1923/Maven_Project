@@ -31,13 +31,14 @@ pipeline {
                 SONAR_TOKEN = credentials('sonar-token')
             }
             steps {
-                // Trigger SonarQube analysis using Maven
-                script {
                     bat '''
-                    mvn sonar:sonar -Dsonar.projectKey=LoginAutomationTest_PoojaK -Dsonar.host.url=http://localhost:9000 -Dsonar.login=%SONAR_TOKEN%
+                    mvn clean verify sonar:sonar \
+                    -Dsonar.projectKey=LoginAutomationTest_PoojaK \
+                    -Dsonar.sources=. \
+                    -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.login=%SONAR_TOKEN% \
                     '''
-                }
-            }
+             }
         }
     }
 
