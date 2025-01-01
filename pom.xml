@@ -40,7 +40,7 @@
                             <sonar.sources>src/main/java</sonar.sources>
                             <sonar.tests>src/test/java</sonar.tests>
                             <!-- Optional exclusion patterns -->
-                            <sonar.exclusions>**/*Test.java</sonar.exclusions>
+                            <sonar.exclusions>**/*LoginAutomationTest.java</sonar.exclusions>
                         </configuration>
                     </execution>
                 </executions>
