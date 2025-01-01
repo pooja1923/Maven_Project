@@ -14,12 +14,12 @@ public class LoginAutomationTest {
  
         try { 
             // Navigate to the login page 
-            driver.get("http://the-internet.herokuapp.com/login"); 
+            driver.get("https://www.saucedemo.com/"); 
  
             // Locate the username and password fields 
-            WebElement usernameField = driver.findElement(By.id("username")); 
+            WebElement usernameField = driver.findElement(By.id("user-name")); 
             WebElement passwordField = driver.findElement(By.id("password")); 
-            WebElement loginButton = driver.findElement(By.id("loginButton")); 
+            WebElement loginButton = driver.findElement(By.id("login-button")); 
  
             // Perform login 
             usernameField.sendKeys("testUser"); 
