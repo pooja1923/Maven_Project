@@ -31,11 +31,11 @@
             <version>4.14.0</version>
         </dependency>
 
-        <!-- SonarQube Maven Plugin Dependency (for SonarQube analysis) -->
+        <!-- WebDriverManager for Dynamic Driver Management -->
         <dependency>
-            <groupId>org.sonarsource.scanner.maven</groupId>
-            <artifactId>sonar-maven-plugin</artifactId>
-            <version>3.9.1.2184</version>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.5.3</version>
         </dependency>
     </dependencies>
 
@@ -48,7 +48,7 @@
                 <version>3.0.0-M5</version>
             </plugin>
 
-            <!-- SonarQube Maven Plugin Configuration -->
+            <!-- SonarQube Maven Plugin for Code Analysis -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
@@ -56,5 +56,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
