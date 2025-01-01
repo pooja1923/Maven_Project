@@ -9,6 +9,12 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
+    <properties>
+        <!-- SonarQube properties -->
+        <sonar.inclusions>**/*.java</sonar.inclusions>
+        <sonar.exclusions>**/test/**, **/*Test.java, **/*Tests.java</sonar.exclusions>
+    </properties>
+
     <dependencies>
         <!-- JUnit 5 Dependency for Testing -->
         <dependency>
