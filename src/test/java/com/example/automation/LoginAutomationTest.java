@@ -14,12 +14,12 @@ public class LoginAutomationTest {
  
         try { 
             // Navigate to the login page 
-            driver.get("https://www.saucedemo.com/"); 
+            driver.get("https://example.com/login"); 
  
             // Locate the username and password fields 
-            WebElement usernameField = driver.findElement(By.id("user-name")); 
+            WebElement usernameField = driver.findElement(By.id("username")); 
             WebElement passwordField = driver.findElement(By.id("password")); 
-            WebElement loginButton = driver.findElement(By.id("login-button")); 
+            WebElement loginButton = driver.findElement(By.id("loginButton")); 
  
             // Perform login 
             usernameField.sendKeys("testUser"); 
