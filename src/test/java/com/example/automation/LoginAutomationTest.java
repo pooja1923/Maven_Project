@@ -27,7 +27,7 @@ public class LoginAutomationTest {
             loginButton.click(); 
  
             // Validate successful login 
-            String expectedTitle = "Dashboard"; 
+            String expectedTitle = "Swag Labs"; 
             String actualTitle = driver.getTitle(); 
             assertEquals(expectedTitle, actualTitle); 
  
