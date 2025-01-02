@@ -15,6 +15,7 @@
     </properties>
 
     <dependencies>
+        <!-- JUnit 5 Dependency for Testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -27,11 +28,15 @@
             <version>5.10.0</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Selenium WebDriver Dependency for Automation Testing -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.14.0</version>
         </dependency>
+
+        <!-- WebDriverManager for Dynamic Driver Management -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
@@ -41,18 +46,18 @@
 
     <build>
         <plugins>
-            <!-- Maven Surefire Plugin for running tests -->
+            <!-- Maven Surefire Plugin for running JUnit tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
             </plugin>
 
-            <!-- Coverage Plugin for publishing coverage reports -->
+            <!-- Coverage Plugin for code coverage reporting -->
             <plugin>
                 <groupId>org.jenkinsci.plugins.coverage</groupId>
                 <artifactId>coverage-plugin</artifactId>
-                <version>1.16.1</version>
+                <version>1.16.1</version><!-- Use the latest version available -->
             </plugin>
 
             <!-- SonarQube Maven Plugin for Code Analysis -->
@@ -62,20 +67,8 @@
                 <version>3.9.1.2184</version>
             </plugin>
 
-            <!-- JaCoCo Plugin for code coverage reporting (if you are still using it) -->
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.8</version> <!-- Use latest version if necessary -->
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
-    </build>   
+    </build>
+
 </project>
+
