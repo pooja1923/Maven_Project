@@ -54,25 +54,11 @@
                 <version>3.0.0-M5</version>
             </plugin>
 
-            <!-- JaCoCo plugin for code coverage -->
+            <!-- Coverage Plugin for code coverage reporting -->
             <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.8</version> <!-- Latest version -->
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <groupId>org.jenkinsci.plugins.coverage</groupId>
+                <artifactId>coverage-plugin</artifactId>
+                <version>1.16.1</version><!-- Use the latest version available -->
             </plugin>
 
             <!-- SonarQube Maven Plugin for Code Analysis -->
@@ -84,6 +70,27 @@
 
         </plugins>
     </build>
+
+    <!-- Reporting section for generating coverage reports -->
+    <reporting>
+        <plugins>
+            <!-- JaCoCo Report Plugin (if you decide to keep JaCoCo) -->
+            <!-- Uncomment if you want to generate JaCoCo reports as well -->
+            <!--
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.8</version><!-- Latest version --><!--
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>report</goal><!-- Generates the report --><!--
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+        </plugins>
+    </reporting>
 
 </project>
 
