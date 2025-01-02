@@ -36,7 +36,7 @@ pipeline {
                 -Dsonar.projectKey=LoginAutomationTest_PoojaK \
                 -Dsonar.sources=src \
                 -Dsonar.tests=src/test/java \
-                -Dsonar.jacoco.reportPaths=target/jacoco.exec \
+                -Dsonar.jacoco.reportPaths=target/jacoco.xml \
                 -Dsonar.inclusions=**/*.java \
                 -Dsonar.host.url=http://localhost:9000 \
                 -Dsonar.login=%SONAR_TOKEN%
