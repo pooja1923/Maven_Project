@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     bat '''
-                    mvn clean install
+                    mvn clean verify
                     '''
                 }
             }
@@ -32,15 +32,25 @@ pipeline {
             }
             steps {
                 bat '''
-                mvn clean verify sonar:sonar \
+                mvn sonar:sonar \
                 -Dsonar.projectKey=LoginAutomationTest_PoojaK \
                 -Dsonar.sources=src \
                 -Dsonar.tests=src/test/java \
-                -Dsonar.jacoco.reportPaths=target/jacoco.xml \
+                -Dsonar.jacoco.reportPaths=target/site/jacoco/jacoco.xml \
                 -Dsonar.inclusions=**/*.java \
                 -Dsonar.host.url=http://localhost:9000 \
                 -Dsonar.login=%SONAR_TOKEN%
                 '''
+            }
+        }
+
+        stage('Publish Coverage Report') {
+            steps {
+                // Use the Coverage Plugin to publish coverage reports
+                coverage([
+                    sourceFile: '**/target/site/jacoco/jacoco.xml',
+                    reportType: 'JaCoCo'
+                ])
             }
         }
     }
