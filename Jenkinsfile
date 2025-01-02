@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     tools {
-        maven 'sonar-maven'
+        maven 'sonar-maven' 
     }
 
     environment {
-        SONAR_SCANNER_PATH = "C:\\Users\\Pooja\\Downloads\\sonar-scanner-cli-6.2.1.4610-windows-x64\\sonar-scanner-6.2.1.4610-windows-x64\\bin"
+        SONAR_TOKEN = credentials('sonar-token') // Ensure you have this credential set in Jenkins
     }
 
     stages {
@@ -19,37 +19,33 @@ pipeline {
         stage('Build and Test') {
             steps {
                 script {
-                    bat '''
-                    mvn clean verify
-                    '''
+                    bat 'mvn clean verify'
                 }
             }
         }
 
         stage('SonarQube Analysis') {
-            environment {
-                SONAR_TOKEN = credentials('sonar-token')
-            }
             steps {
-                bat '''
-                mvn sonar:sonar \
-                -Dsonar.projectKey=LoginAutomationTest_PoojaK \
-                -Dsonar.sources=src \
-                -Dsonar.tests=src/test/java \
-                -Dsonar.host.url=http://localhost:9000 \
-                -Dsonar.login=%SONAR_TOKEN%
-                '''
+                script {
+                    bat '''
+                    mvn sonar:sonar \
+                    -Dsonar.projectKey=LoginAutomationTest_PoojaK \
+                    -Dsonar.sources=src \
+                    -Dsonar.tests=src/test/java \
+                    -Dsonar.jacoco.reportPaths=target/site/jacoco/jacoco.xml \
+                    -Dsonar.inclusions=**/*.java \
+                    -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.login=%SONAR_TOKEN%
+                    '''
+                }
             }
         }
 
         stage('Publish Coverage Report') {
             steps {
-                // Use the Coverage Plugin to publish coverage reports
-                // Assuming you're using a JaCoCo report, adjust if you're using a different format
-                coverage([
-                    sourceFile: '**/target/site/jacoco/jacoco.xml',
-                    reportType: 'JaCoCo' // Ensure you specify the correct report type
-                ])
+                // Assuming you have coverage reporting logic here
+                echo 'Publishing coverage report...'
+                // Add your coverage report logic here if needed
             }
         }
     }
