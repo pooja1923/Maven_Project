@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'sonar-maven' 
+        maven 'sonar-maven'
     }
 
     environment {
@@ -36,8 +36,6 @@ pipeline {
                 -Dsonar.projectKey=LoginAutomationTest_PoojaK \
                 -Dsonar.sources=src \
                 -Dsonar.tests=src/test/java \
-                -Dsonar.jacoco.reportPaths=target/site/jacoco/jacoco.xml \
-                -Dsonar.inclusions=**/*.java \
                 -Dsonar.host.url=http://localhost:9000 \
                 -Dsonar.login=%SONAR_TOKEN%
                 '''
@@ -47,9 +45,10 @@ pipeline {
         stage('Publish Coverage Report') {
             steps {
                 // Use the Coverage Plugin to publish coverage reports
+                // Assuming you're using a JaCoCo report, adjust if you're using a different format
                 coverage([
                     sourceFile: '**/target/site/jacoco/jacoco.xml',
-                    reportType: 'JaCoCo'
+                    reportType: 'JaCoCo' // Ensure you specify the correct report type
                 ])
             }
         }
