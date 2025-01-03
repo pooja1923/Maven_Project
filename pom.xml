@@ -1,74 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.example.automation</groupId>
-    <artifactId>login-automation</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>com.example.maven_assessment</groupId>
+    <artifactId>Maven_coverage_pipeline3</artifactId>
     <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>Maven_Project</name>
+    <url>http://maven.apache.org</url>
 
     <properties>
-        <sonar.inclusions>**/*.java</sonar.inclusions>
-        <sonar.exclusions>**/test/**, **/*Test.java, **/*Tests.java</sonar.exclusions>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <sonar.host.url>http://localhost:9000</sonar.host.url>
+        <sonar.projectKey>LoginAutomationTest_PoojaK</sonar.projectKey>
     </properties>
 
     <dependencies>
-        <!-- JUnit 5 Dependency for Testing -->
+        <!-- JUnit 5 for testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.10.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.10.0</version>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.8.2</version>
             <scope>test</scope>
         </dependency>
 
-        <!-- Selenium WebDriver Dependency for Automation Testing -->
+        <!-- Selenium WebDriver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.14.0</version>
+            <version>4.13.0</version>
         </dependency>
 
-        <!-- WebDriverManager for Dynamic Driver Management -->
+        <!-- WebDriverManager for handling browser drivers -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.5.3</version>
+            <version>5.4.0</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Maven Surefire Plugin for running JUnit tests -->
+            <!-- Surefire Plugin for Running Tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <version>3.0.0</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
             </plugin>
 
-            <!-- Coverage Plugin for code coverage reporting -->
+            <!-- JaCoCo Plugin for Coverage -->
             <plugin>
-                <groupId>org.jenkinsci.plugins.coverage</groupId>
-                <artifactId>coverage-plugin</artifactId>
-                <version>1.16.1</version><!-- Use the latest version available -->
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.10</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
-            <!-- SonarQube Maven Plugin for Code Analysis -->
+            <!-- SonarQube Plugin -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.9.1.2184</version>
+                <version>4.8.0.2856</version>
             </plugin>
-
         </plugins>
     </build>
-
 </project>
-
