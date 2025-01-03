@@ -10,6 +10,10 @@ public class LoginAutomationTest {
     public void testLogin() { 
         // Set up the WebDriver 
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Pooja\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe"); 
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless"); // Run tests in headless mode (no UI)
+        options.addArguments("--disable-gpu"); // Disable GPU acceleration
+        options.addArguments("--window-size=1920,1080"); // Set screen size
         WebDriver driver = new ChromeDriver(); 
  
         try { 
