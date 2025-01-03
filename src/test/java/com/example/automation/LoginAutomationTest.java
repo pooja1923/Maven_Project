@@ -12,7 +12,7 @@ public class LoginAutomationTest {
     @Test
     public void testLogin() {
         // Set up WebDriver path
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Pooja\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe"");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Pooja\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 
         // Set ChromeOptions for headless mode
         ChromeOptions options = new ChromeOptions();
