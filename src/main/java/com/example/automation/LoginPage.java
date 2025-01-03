@@ -40,10 +40,8 @@ public class LoginPage {
         WebElement messageElement = driver.findElement(By.id("flash"));
         return messageElement.getText();
     }
-    public void clearFields() {
-        WebElement usernameField = driver.findElement(By.id("username"));
-        WebElement passwordField = driver.findElement(By.id("password"));
-        usernameField.clear();
-        passwordField.clear();
+    public boolean isLoginButtonEnabled() {
+        WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
+        return loginButton.isEnabled();
     }
 }
