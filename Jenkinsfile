@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        SONAR_TOKEN = credentials('sonar-token') // Ensure you have this credential set in Jenkins
+        SONAR_TOKEN = credentials('sonar-token') 
     }
 
     stages {
@@ -43,9 +43,9 @@ pipeline {
 
         stage('Publish Coverage Report') {
             steps {
-                // Assuming you have coverage reporting logic here
+                
                 echo 'Publishing coverage report...'
-                // Add your coverage report logic here if needed
+               
             }
         }
     }
