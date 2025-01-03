@@ -30,7 +30,7 @@ pipeline {
                     bat '''
                     mvn sonar:sonar \
                     -Dsonar.projectKey=LoginAutomationTest_PoojaK \
-                    -Dsonar.sources=src \
+                     -Dsonar.sources=src/main/java \
                     -Dsonar.tests=src/test/java \
                     -Dsonar.jacoco.reportPaths=target/site/jacoco/jacoco.xml \
                     -Dsonar.inclusions=**/*.java \
